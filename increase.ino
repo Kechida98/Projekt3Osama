@@ -35,4 +35,8 @@ void IncreaseBetPress() {
 
     delay(debounceDelay);
  }
+ // Kontrollera om knappen för att öka insatsen är låg och återställ flaggan
+  if (digitalRead(increaseBetPin) == LOW && increaseButtonPressed) {
+    increaseButtonPressed = false;
+ }
 }
