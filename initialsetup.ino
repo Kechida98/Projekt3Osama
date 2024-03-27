@@ -1,7 +1,6 @@
-#include <LiquidCrystal.h>
-#include <EEPROM.h>
-
-LiquidCrystal lcd(12, 11, 10, 9, 8, 7); // Skapa ett objekt för att styra LCD-skärmen
+// Adresser för att lagra antal vinster och förluster i EEPROM
+const int winsEEPROMAddress = 0;
+const int lossesEEPROMAddress = 1;
 
 //Definera stift för olika knappar och lysdioder
 const int playerButtonPin = A0;    
@@ -35,7 +34,3 @@ unsigned long lastDebounceTimeIncrease = 0;
 unsigned long lastDebounceTimeDecrease = 0; 
 unsigned long lastDebounceTimeEnd = 0;      
 unsigned long debounceDelay = 50;           // Debounce-försening
-
-// Adresser för att lagra antal vinster och förluster i EEPROM
-const int winsEEPROMAddress = 0;
-const int lossesEEPROMAddress = 1;
