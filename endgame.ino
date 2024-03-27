@@ -1,4 +1,11 @@
 void EndGamePress() {
+  static bool endButtonPressed = false; // Flagga för att spåra om avslutningsknappen trycks
+
+  // Kontrollera om avslutningsknappen är hög och tillräckligt med tid har passerat sedan senaste avtryckningen och om knappen inte redan har tryckts
+  if (digitalRead(endGamePin) == HIGH && millis() - lastDebounceTimeEnd > debounceDelay && !endButtonPressed) {
+    lastDebounceTimeEnd = millis(); // Uppdatera tiden för senaste avtryckningen
+    endButtonPressed = true; // Markera att knappen har tryckts
+
     lcd.clear(); // Rensa LCD-skärmen
 
     // Om spelet är aktivt
@@ -48,4 +55,9 @@ void EndGamePress() {
 
       gameActive = true; // Markera att spelet är aktivt
     }
+
+    displayMain(); 
+  } else if (digitalRead(endGamePin) == LOW) { // Om avslutningsknappen är låg
+    endButtonPressed = false; // Återställ flaggan för knapptryckning för att avsluta spelet
+  }
 }
