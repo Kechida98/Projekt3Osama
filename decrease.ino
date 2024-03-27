@@ -1,4 +1,6 @@
 void DecreaseBetPress() {
+  static bool decreaseButtonPressed = false;
+  static char decreaseChar = 'Z'; // Alfabetiskt tecken för att minska insatsen
   // Kontrollera om knappen för att minska insatsen är hög och om villkoren för minskning är uppfyllda
   if (digitalRead(decreaseBetPin) == HIGH && bet >= 10 && millis() - lastDebounceTimeDecrease > debounceDelay && !decreaseButtonPressed) {
     lastDebounceTimeDecrease = millis();
@@ -33,5 +35,9 @@ void DecreaseBetPress() {
     decreaseButtonPressed = true;
 
     delay(debounceDelay);
+  }
+  // Kontrollera om knappen för att minska insatsen är låg och återställ flaggan
+  if (digitalRead(decreaseBetPin) == LOW && decreaseButtonPressed) {
+    decreaseButtonPressed = false;
   }
 }
