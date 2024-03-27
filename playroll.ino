@@ -9,5 +9,7 @@ void PlayerRoll() {
 
     // Vänta tills spelaren släpper knappen för att rulla tärningarna
     while (digitalRead(playerButtonPin) == LOW);
+    
+    rollDiceAndHandleResult(); 
  } 
 } 
