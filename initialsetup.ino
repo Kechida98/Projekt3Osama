@@ -1,3 +1,7 @@
+#include <LiquidCrystal.h>
+#include <EEPROM.h>
+
+LiquidCrystal lcd(12, 11, 10, 9, 8, 7); // Skapa ett objekt för att styra LCD-skärmen
 // Adresser för att lagra antal vinster och förluster i EEPROM
 const int winsEEPROMAddress = 0;
 const int lossesEEPROMAddress = 1;
