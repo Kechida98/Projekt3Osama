@@ -11,4 +11,5 @@ void loop() {
     IncreaseBetPress(); // Hantera knapptryckning för att öka satsningen
     DecreaseBetPress(); // Hantera knapptryckning för att minska satsningen
   }
+  PlayerRoll(); // Hantera spelarens rullknapp
 }
